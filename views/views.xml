@@ -1,0 +1,102 @@
+<odoo>
+  <data>
+
+    <!-- alumno -->
+    <record model="ir.ui.view" id="alumno.list">
+      <field name="name">alumno.list.view</field>
+      <field name="model">alumno.alumno</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="apellido"/>
+          <field name="fecha_nacimiento"/>
+          <field name="nro_legajo"/>
+          <field name="email"/>
+          <field name="telefono"/>
+          <field name="direccion"/>
+          <field name="pais"/>
+        </tree>
+      </field>
+    </record>
+
+    <!-- programa -->
+    <record id="view_programa_form" model="ir.ui.view">
+        <field name="name">programa.form</field>
+        <field name="model">alumno.programa</field>
+        <field name="arch" type="xml">
+        <!-- <field name="state">code</field>
+        <field name="code">action = programa.get_alumnos_inscriptos()</field> -->
+            <form string="">
+                <header>
+                    <button name="get_alumnos_inscriptos" type="object" string="llama funcion?"/>
+                </header>
+              <sheet>
+                <group>
+                    <function model="alumno.programa" name="get_alumnos_inscriptos"/>
+                </group>
+              </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_programa_tree" model="ir.ui.view">
+      <field name="name">programa.tree</field>
+      <field name="model">alumno.programa</field>
+      <field name="arch" type="xml">
+          <tree string="Lista de Programas">
+              <field name="name"/>
+              <field name="descripcion"/>
+              <!-- <field name="alumnos_inscriptos"/> -->
+          </tree>
+      </field>
+    </record>
+
+    <!-- inscripcion -->
+    <record id="view_inscripcion_tree" model="ir.ui.view">
+      <field name="name">inscripcion.tree</field>
+      <field name="model">alumno.inscripcion</field>
+      <field name="arch" type="xml">
+          <tree string="Lista de Inscripciones">
+              <field name="alumno_id"/>
+              <field name="programa_id"/>
+          </tree>
+      </field>
+    </record>
+
+
+    <!-- actions opening views on models -->
+    <record model="ir.actions.act_window" id="alumno_test">
+      <field name="name">ventana alumno</field>
+      <field name="res_model">alumno.alumno</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="programa_test">
+      <field name="name">ventana programa</field>
+      <field name="res_model">alumno.programa</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="programa_form_test">
+      <field name="name">ventana programa llama funcion</field>
+      <field name="res_model">alumno.programa</field>
+      <field name="view_mode">form</field>
+    </record>
+
+    <record model="ir.actions.act_window" id="inscripcion_test">
+      <field name="name">ventana inscripcion</field>
+      <field name="res_model">alumno.inscripcion</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Top menu item -->
+    <menuitem id="alumno_root_menu" name="Alumno"/>
+    <menuitem id="Gestor" parent="alumno_root_menu"/>
+    <menuitem id="alumno_profile_menu" action= "alumno_test" parent="Gestor"/>
+    <menuitem id="programa_menu" action= "programa_test" parent="Gestor"/>
+    <menuitem id="inscripcion_menu" action= "inscripcion_test" parent="Gestor"/>
+    <menuitem id="programa_form_menu" action= "programa_form_test" parent="Gestor"/>
+
+  <!-- <function model="alumno.programa" name="get_alumnos_inscriptos"/> -->
+  </data>
+</odoo>
