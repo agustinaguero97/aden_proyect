@@ -5,21 +5,26 @@ code challengue: Proyecto en Odoo 15
 ## especificaciones del challengue
 
 Crear un modulo de Odoo versión 15 que cumpla con lo siguiente:
-    - Modelo Alumno que contenga los siguientes datos:
-    - Nombre
-    - Apellido
-    - Fecha de nacimiento
-    - Nro de legajo
-    - Email
-    - Teléfono
-    - Dirección
-    - País
-    - Modelo Programa que contenga nombre y descripción
-    - Modelo Inscripción que permita registrar que un alumno está inscripto a un programa
-    - Función dentro del modelo programa que reciba como parámetro un programa y que retorne una lista de todos los alumnos que están inscriptos en el programa.
+1. Modelo Alumno que contenga los siguientes datos:
+    1. Nombre
+    2. Apellido
+    3. Fecha de nacimiento
+    4. Nro de legajo
+    5. Email
+    6. Teléfono
+    7. Dirección
+    8.  País
+
+2. Modelo Programa que contenga 
+    1. nombre
+    2. descripción
+
+3. Modelo Inscripción que permita registrar que un alumno está inscripto a un programa
+
+4. Función dentro del modelo programa que reciba como parámetro un programa y que retorne una lista de todos los alumnos que están inscriptos en el programa.
+Ejemplo de respuesta:
 
 ```json
-Ejemplo de respuesta:
     [
         {
             'nombre': 'Cristian',
