@@ -44,7 +44,7 @@
       <field name="model">alumno.programa</field>
       <field name="arch" type="xml">
           <tree string="Lista de Programas">
-              <field name="name"/>
+              <field name="nombre"/>
               <field name="descripcion"/>
               <!-- <field name="alumnos_inscriptos"/> -->
           </tree>
